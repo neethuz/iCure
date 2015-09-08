@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+    <link href="/css/cover.css" rel="stylesheet" />
+    <link href="/css/site.css" rel="stylesheet" />
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!--<link href="/css/slider.css" rel="stylesheet" />-->
+    <script src="/js/ie-emulation-modes-warning.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <div id="body-overlay">
+        <div class="box-load">
+            <img src="img/body-load.gif" /><label> Loading</label>
+        </div>
+    </div>
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="masthead clearfix">
+                    <div class="inner">
+                        <a href="/">
+                            <h3 class="masthead-brand">
+                                <img src="/img/logo.png" alt="iCure" />
+                            </h3>
+                        </a>
+                        <nav>
+                            <ul class="nav masthead-nav">
+                                <li>
+                                    <a href="#" class="dropdownmenu">Cart <span class="show-cart img-circle label label-danger"></span></a>
+                                    <div class="shopping-cart">
+                                        <div id="overlay">
+                                            <p>Please wait loading</p>
+                                            <img alt='Loading' src="/img/load.gif" />
+                                        </div>
+                                        <ul></ul>
+                                        <div class="col-md-12">
+                                            <a href="/shopping-cart.html" class="btn btn-sm btn-info">View Cart</a>
+                                            <a href="javascript:void(0);" id="page-check-out" class="btn btn-sm btn-danger">Check out</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="/track-order.html">Track Order</a>
+                                </li>
+                                <li>
+                                    <a href="/RxPrescriptions.html">Upload</a>
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="inner cover" style="height:330px;margin-top:100px;display:none" id="success-message">
+                    
+                    <div class="alert alert-success"><p class="text-center text-success" style="font-size:35pt;"><span class="glyphicon glyphicon-thumbs-up"></span></p>
+                    <h1 class="text-center text-success" style="font-size:30pt;"> Thank you</h1>
+                    <hr/>
+                    <p id="order-details"></p>
+                    </div>
+                   
+                </div>
+                <div class="mastfoot">
+                    <div class="inner">
+                        <ul class="foot-menu">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                        <p>&copy;2015. All right reserved <a href="http://www.mycure.in">MyCure</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="hdnOrderID" />
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <script src="/js/jquery-1.10.2.js"></script>
+    <script src="/js/jquery.cookie.js"></script>
+    <script src="/js/jquery-ui.js"></script>
+    <script src="/js/common.js?v=2"></script>
+    <script src="/js/index.js?v=2"></script>
+    <script>
+        $(document).ready(function () {
+            
+            if (window.localStorage.getItem("OrderID") != null) {
+                var cookies = $.cookie();
+                for (var cookie in cookies) {
+                    $.removeCookie(cookie);
+                }
+                $('#success-message').fadeIn(2000);
+                $('#order-details').html("Please note down your Order ID <b>" + window.localStorage.getItem("OrderID") + "</b> for future communication<br/>For Order status: Email to <a href='mailto:support@icost.com'>support@icost.com</a> with order number <b>" + window.localStorage.getItem("OrderID") + "</b>/ Call us at <a href='tel:+919167490115'>+919167490115</a>");
+                window.localStorage.clear();
+            }
+            else
+                window.location.href = "shopping-cart.html";
+        });
+    </script>
+    <script src="/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
