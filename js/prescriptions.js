@@ -15,7 +15,7 @@
         $('#txtMobile').next().next().html("");
     var formData = new FormData();
     var file = $('#fuPrescriptions')[0];
-    var cartID = $.cookie("cartID");
+    var cartID = window.localStorage.getItem("cartID");
     formData.append('file', file.files[0]);
     formData.append('cartID', cartID);
     formData.append('Desc', $('#txtDescription').val());

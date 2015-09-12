@@ -51,7 +51,7 @@ $('#redeem').click(function () {
     if (($('#redeem').val() == "Redeem") && ($('#txtCoupon').val() != '')) {
         $('#error-coupon').html("");
         $('#redeem').val("Please wait..");
-        var cartID = $.cookie("cartID");
+        var cartID = window.localStorage.getItem("cartID");
         $.ajax({
             type: "POST",
             url: "http://clients.topmovierankings.com/api/coupon",

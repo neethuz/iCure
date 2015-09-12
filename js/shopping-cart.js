@@ -3,9 +3,7 @@
     var vat = 0;
     var grandtotal = 0;
     var cart = $('.show-cart');
-    var cartID = '';
-    if ($.cookie('cartID') != null)
-        cartID = $.cookie('cartID');
+    var cartID = window.localStorage.getItem("cartID");
     cart.html("<img alt='Loading' src='load.gif' />");
     $.ajax({
         type: "GET",
@@ -42,7 +40,7 @@ function decrementQuantity(obj) {
 }
 function updatecart(pid, quantity) {
     $('#overlay').fadeIn();
-    var cartID = $.cookie("cartID");
+    var cartID = window.localStorage.getItem("cartID");
     $.ajax({
         type: "PUT",
         headers: { "Authorization" : "bearer "+ accessToken },
@@ -101,7 +99,7 @@ function updateQty(obj) {
 
 $('#check-out').click(function () {
     $('#body-overlay').fadeIn();
-    var cartID = $.cookie("cartID");
+    var cartID = window.localStorage.getItem("cartID");
     if (window.localStorage.getItem("OrderID") == null) {
         $.ajax({
             type: "POST",

@@ -13,7 +13,7 @@ $(document).ready(function () {
    
 });
 function confirmOrder() {
-    var cartID = $.cookie('cartID');
+    var cartID = window.localStorage.getItem("cartID");
     $.ajax({
         type: "POST",
         url: "http://clients.topmovierankings.com/api/order/confirm",
@@ -29,7 +29,7 @@ function confirmOrder() {
 }
 function setConfirmation(data) {
     var cartCount = 0;
-    var cartID = $.cookie('cartID');
+    var cartID = window.localStorage.getItem("cartID");
     var json = data.CartItems;
     var innerConfirmHtml = "<table class='table table-bordered' id='tab-Shop'><thead><tr><th>Product</th><th>Quantity</th><th class='text-right'>Unit Price</th><th class='text-right'>Total</th></tr></thead><tbody>";
     var itemCount = 0;

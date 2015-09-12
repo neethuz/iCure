@@ -54,7 +54,7 @@ $(function () {
                             });
                             $('.buy-now').click(function () {
                                 $('#overlay1').fadeIn();
-                                var cartID = $.cookie("cartID");
+                                var cartID = window.localStorage.getItem("cartID");
                                 $.ajax({
                                     type: "POST",
                                     url: "http://clients.topmovierankings.com/api/cart",
@@ -100,7 +100,7 @@ $('.masthead-nav li a.dropdownmenu').click(function () { $('.shopping-cart').sli
 
 $('#page-check-out').click(function () {
     $('#body-overlay').fadeIn();
-    var cartID = $.cookie("cartID");
+    var cartID = window.localStorage.getItem("cartID");
     $.ajax({
         type: "POST",
         beforeSend: setHeader,

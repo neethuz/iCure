@@ -56,8 +56,8 @@ function getToken(callback) {
 function LoadCart() {
     var cart = $('.show-cart');
     var cartID = '';
-    if ($.cookie('cartID') != null)
-        cartID = $.cookie('cartID');
+    if (window.localStorage.getItem("cartID") != null)
+        cartID = window.localStorage.getItem("cartID");
     cart.html("<img alt='Loading' src='load.gif' />");
     $.ajax({
         type: "GET",
@@ -113,7 +113,7 @@ function setCartValues(data) {
        
     });
     
-    $.cookie("cartID", cartID, {expires:3600});
+    window.localStorage.setItem("cartID", cartID);
     innerShoppingHtml += "<tr><td colspan='4' class='text-right'>Grand  Total:</td><td class='text-right'><span class='all-grand-total'>" + shoptotal.toFixed(2) + "</span></td></tr></tbody></table>";
     if ($('#shopping-cart-table').length > 0) 
         $('#shopping-cart-table').html(innerShoppingHtml);
@@ -162,8 +162,8 @@ function setCartValues(data) {
 }
 function removePrescription(id) {
     var cartID = '';
-    if ($.cookie('cartID') != null)
-        cartID = $.cookie('cartID');
+    if (window.localStorage.getItem("cartID") != null)
+        cartID = window.localStorage.getItem("cartID");
     if (confirm('Do you want to remove this product from cart?')) {
         $('#overlay').fadeIn();
         $.ajax({
@@ -185,8 +185,9 @@ function removePrescription(id) {
 
 function removecartitem(pid) {
     var cartID = '';
-    if ($.cookie('cartID') != null)
-        cartID = $.cookie('cartID');
+    if (window.localStorage.getItem("cartID") != null)
+        cartID = window.localStorage.getItem("cartID");
+
     if (confirm('Do you want to remove this product from cart?')) {
         $('#overlay').fadeIn();
         $.ajax({
