@@ -58,7 +58,7 @@ function LoadCart() {
     var cartID = '';
     if ($.cookie('cartID') != null)
         cartID = $.cookie('cartID');
-    cart.html("<img alt='Loading' src='/img/load.gif' />");
+    cart.html("<img alt='Loading' src='load.gif' />");
     $.ajax({
         type: "GET",
         url: "http://clients.topmovierankings.com/api/cart/" + cartID,

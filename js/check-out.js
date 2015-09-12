@@ -15,7 +15,7 @@ $('#txtPincode').change(function () {
 
             return;
         }
-        $('#txtPincode').next().html("<p class='text-warning'><img src='/img/load.gif' alt='loading'/> Please wait</p>")
+        $('#txtPincode').next().html("<p class='text-warning'><img src='load.gif' alt='loading'/> Please wait</p>")
         $.ajax({
             type: "GET",
             url: "http://clients.topmovierankings.com/api/countrystate/" + $('#txtPincode').val(),
