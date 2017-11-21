@@ -10,127 +10,12 @@
     <link href="js/fancy/jquery.fancybox.css" rel="stylesheet" />
 </head>
 <body>
-    <div id="body-overlay">
-        <div class="box-load">
-            <img src="body-load.gif" /><label> Loading</label>
-        </div>
-    </div>
-    <div class="row-fluid">
-        <div class="site-wrapper-inner">
-            <div class="cover-container">
-                <div class="masthead clearfix">
-                    <div class="inner">
-                        <a href="index.html">
-                            <h3 class="masthead-brand">
-                                <img src="logo.png" alt="iCure"/></h3>
-                        </a>
-                        <nav>
-                            <ul class="nav masthead-nav">
-                                <li>
-                                    <a href="#" class="dropdownmenu">Cart <span class="show-cart img-circle label label-danger"></span></a>
-                                    <div class="shopping-cart">
-                                        <div id="overlay">
-                                            <p>Please wait loading</p>
-                                            <img alt='Loading' src="load.gif" />
-                                        </div>
-                                        <ul></ul>
-                                        <div class="col-md-12">
-                                            <a href="shopping-cart.html" class="btn btn-sm btn-info">View Cart</a>
-                                            <a href="javascript:void(0);" id="page-check-out" class="btn btn-sm btn-danger">Check out</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="track-order.html">Track Order</a>
-                                </li>
-                                <li>
-                                    <a href="RxPrescriptions.html">Upload</a>
-                                </li>
-
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="col-lg-12 text-center prescriptionbox">
-                    <a href="javascript:void(0);" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#UploadModal">Upload Prescription</a>
-                </div>
-                <div class="col-lg-12">
-                    <div class="inner cover">
-
-                        <div class="form-group search-form">
-                            <div class="icon-addon addon-lg">
-                                <input type="text" placeholder="Enter medicine name here" class="form-control tb" id="txtSearch" name="txtSearch">
-                                <label for="email" class="glyphicon glyphicon-search" rel="tooltip" title=""></label>
-                                <label for="email" class="glyphicon glyphicon-ban-circle close" title="clear"></label>
-                            </div>
-                            <div class="search-results">
-                                <div class="alert alert-info search-prod" id="resultpane" style="display:none;">
-                                    <div id="overlay1">
-                                        <p>Please wait.. Adding to cart</p>
-                                        <img alt='Loading' src="load.gif" />
-                                    </div>
-                                    <button class='close' style='display: block;' data-close='alert'>Close</button>
-                                    <div id="results"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="mastfoot">
-                        <div class="inner">
-                            <ul class="foot-menu">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                            </ul>
-                            <p>&copy;2015. All right reserved <a href="http://www.mycure.in">MyCure</a>.</p>
-                        </div>
-                    </div>
-                </div>
-                </div>
-        </div>
-    </div>
-    <div class="modal fade" id="UploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Upload Prescription</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="col-md-12 text-left">
-                        <div class="form-group">
-                            <label for="txtName">Title</label>
-                            <input type="text" class="form-control" id="txtName" placeholder="">
-                            <div class="error col-md-12"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="txtDescription">Description</label>
-                            <div class="icon-addon">
-                                <textarea class="form-control" id="txtDescription" placeholder=""></textarea>
-                                <div class="error col-md-12"></div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="v">Select File *</label>
-                            <input type="file" id="fuPrescriptions" class="fileupload" />
-                            <div class="error col-md-12"></div>
-                        </div>
-
-
-
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="modal-footer">
-                    <a href="javascript:void(0);" id="btn-submit" class="btn btn-sm btn-danger">Submit</a>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+     
+    
+     <frameset cols="1" frameborder="0" border="0" noresize frameSpacing="0">
+                <frame id="iframeid" bordercolor="#000000" border="0" frameborder="no"
+                       onload="iframeLoad();" scrolling="yes" noresize src="https://www.topmovierankings.com"></frame>
+            </frameset>
     <link rel="stylesheet" href="css/jquery-ui.css">
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/jquery-ui.js"></script>
@@ -140,5 +25,29 @@
     <script src="js/fancy/jquery.fancybox.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/prescriptions.js?v=2"></script>
+    
+    <script>
+        function iframeLoad() {
+            if (iOS()) {
+                document.getElementById('iframeid').scrolling = "no";
+            }
+        }
+        function iOS() {
+            var iDevices = [
+              'iPad Simulator',
+              'iPhone Simulator',
+              'iPod Simulator',
+              'iPad',
+              'iPhone',
+              'iPod'
+            ];
+            if (!!navigator.platform) {
+                while (iDevices.length) {
+                    if (navigator.platform === iDevices.pop()) { return true; }
+                }
+            }
+            return false;
+        }
+    </script>
 </body>
 </html>
